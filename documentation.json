@@ -3,38 +3,38 @@
     "interfaces": [
         {
             "name": "Todos",
-            "id": "interface-Todos-0e26315c40457d26335fa99495ddae27",
+            "id": "interface-Todos-2bcf14449c4724fb955a978ab165ba71",
             "file": "src/app/app.component.ts",
             "type": "interface",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\n\nexport interface Todos {\n  userId: number;\n  id: number;\n  title: string;\n  completed: boolean;\n}\n@Component({\n  selector: 'app-root',\n  template: `\n    <div>\n      <div *ngIf=\"error\"><p>There was an error fetching the data!</p></div>\n      <div *ngIf=\"loading\"><p>Fetching data</p></div>\n      <div>\n        <div *ngFor=\"let todo of todos\">\n          <h1>This is a sample component</h1>\n          <div>\n            <h2>Has the following props and values</h2>\n            <div>\n              <h3>id: {{ todo.id }}</h3>\n              <h3>userId: {{ todo.userId }}</h3>\n              <h3>title: {{ todo.title }}</h3>\n              <h3>completed:{{ todo.completed }}</h3>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  `,\n})\nexport class AppComponent implements OnInit {\n  title = 'intro-storybook-angular-template';\n  todos: Todos[] = [];\n  errorMessage: string = '';\n  error = false;\n  loading = true;\n  constructor(private http: HttpClient) {}\n  ngOnInit() {\n    this.http\n      .get<any>('https://jsonplaceholder.typicode.com/todos/')\n      .subscribe({\n        next: (data) => {\n          /*  this.todos = data.total; */\n          this.loading = false;\n          console.log(`data`, data);\n          this.todos = data;\n        },\n        error: (error) => {\n          this.error = true;\n          this.errorMessage = error.message;\n          console.error('There was an error!', error);\n        },\n      });\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\nexport interface Todos {\n  userId: number;\n  id: number;\n  title: string;\n  completed: boolean;\n}\n@Component({\n  selector: 'app-root',\n  template: `\n    <div>\n      <h1>Graphql</h1>\n      <app-sample-graphql></app-sample-graphql>\n    </div>\n  `,\n})\nexport class AppComponent  {\n  title = 'intro-storybook-angular-template';\n}\n",
             "properties": [
                 {
                     "name": "completed",
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 8
+                    "line": 7
                 },
                 {
                     "name": "id",
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 6
+                    "line": 5
                 },
                 {
                     "name": "title",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 7
+                    "line": 6
                 },
                 {
                     "name": "userId",
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 5
+                    "line": 4
                 }
             ],
             "indexSignatures": [],
@@ -48,7 +48,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-0e26315c40457d26335fa99495ddae27",
+            "id": "component-AppComponent-2bcf14449c4724fb955a978ab165ba71",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -58,95 +58,31 @@
             "selector": "app-root",
             "styleUrls": [],
             "styles": [],
-            "template": "<div>\n  <div *ngIf=\"error\"><p>There was an error fetching the data!</p></div>\n  <div *ngIf=\"loading\"><p>Fetching data</p></div>\n  <div>\n    <div *ngFor=\"let todo of todos\">\n      <h1>This is a sample component</h1>\n      <div>\n        <h2>Has the following props and values</h2>\n        <div>\n          <h3>id: {{ todo.id }}</h3>\n          <h3>userId: {{ todo.userId }}</h3>\n          <h3>title: {{ todo.title }}</h3>\n          <h3>completed:{{ todo.completed }}</h3>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n",
+            "template": "<div>\n  <h1>Graphql</h1>\n  <app-sample-graphql></app-sample-graphql>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "error",
-                    "defaultValue": "false",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 37
-                },
-                {
-                    "name": "errorMessage",
-                    "defaultValue": "''",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 36
-                },
-                {
-                    "name": "loading",
-                    "defaultValue": "true",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 38
-                },
-                {
                     "name": "title",
                     "defaultValue": "'intro-storybook-angular-template'",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 34
-                },
-                {
-                    "name": "todos",
-                    "defaultValue": "[]",
-                    "type": "Todos[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 35
+                    "line": 19
                 }
             ],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 40
-                }
-            ],
+            "methodsClass": [],
             "hostBindings": [],
             "hostListeners": [],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\n\nexport interface Todos {\n  userId: number;\n  id: number;\n  title: string;\n  completed: boolean;\n}\n@Component({\n  selector: 'app-root',\n  template: `\n    <div>\n      <div *ngIf=\"error\"><p>There was an error fetching the data!</p></div>\n      <div *ngIf=\"loading\"><p>Fetching data</p></div>\n      <div>\n        <div *ngFor=\"let todo of todos\">\n          <h1>This is a sample component</h1>\n          <div>\n            <h2>Has the following props and values</h2>\n            <div>\n              <h3>id: {{ todo.id }}</h3>\n              <h3>userId: {{ todo.userId }}</h3>\n              <h3>title: {{ todo.title }}</h3>\n              <h3>completed:{{ todo.completed }}</h3>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  `,\n})\nexport class AppComponent implements OnInit {\n  title = 'intro-storybook-angular-template';\n  todos: Todos[] = [];\n  errorMessage: string = '';\n  error = false;\n  loading = true;\n  constructor(private http: HttpClient) {}\n  ngOnInit() {\n    this.http\n      .get<any>('https://jsonplaceholder.typicode.com/todos/')\n      .subscribe({\n        next: (data) => {\n          /*  this.todos = data.total; */\n          this.loading = false;\n          console.log(`data`, data);\n          this.todos = data;\n        },\n        error: (error) => {\n          this.error = true;\n          this.errorMessage = error.message;\n          console.error('There was an error!', error);\n        },\n      });\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\nexport interface Todos {\n  userId: number;\n  id: number;\n  title: string;\n  completed: boolean;\n}\n@Component({\n  selector: 'app-root',\n  template: `\n    <div>\n      <h1>Graphql</h1>\n      <app-sample-graphql></app-sample-graphql>\n    </div>\n  `,\n})\nexport class AppComponent  {\n  title = 'intro-storybook-angular-template';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [
-                    {
-                        "name": "http",
-                        "type": "HttpClient"
-                    }
-                ],
-                "line": 38,
-                "jsdoctags": [
-                    {
-                        "name": "http",
-                        "type": "HttpClient",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            "implements": [
-                "OnInit"
-            ]
+            "stylesData": ""
         },
         {
             "name": "ButtonComponent",
@@ -352,6 +288,90 @@
                 }
             ],
             "stylesData": ""
+        },
+        {
+            "name": "SampleGraphqlComponent",
+            "id": "component-SampleGraphqlComponent-ec61429dfd7bc689a2a38012239871ba",
+            "file": "src/app/components/SampleGraphqlComponent.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-sample-graphql",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div *ngIf=\"loading\">Loading...</div>\n<div *ngIf=\"error\">There was an error fetching the data!</div>\n<div *ngIf=\"films\">\n  <div *ngFor=\"let film of films\">\n    <article>\n      <h4>{{ film.title }}</h4>\n      <p>{{ film.opening_crawl }}</p>\n    </article>\n  </div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "error",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                },
+                {
+                    "name": "films",
+                    "type": "any[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                },
+                {
+                    "name": "loading",
+                    "defaultValue": "true",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 26
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { Apollo } from 'apollo-angular';\nimport gql from 'graphql-tag';\n\n@Component({\n  selector: 'app-sample-graphql',\n  template: `\n    <div *ngIf=\"loading\">Loading...</div>\n    <div *ngIf=\"error\">There was an error fetching the data!</div>\n    <div *ngIf=\"films\">\n      <div *ngFor=\"let film of films\">\n        <article>\n          <h4>{{ film.title }}</h4>\n          <p>{{ film.opening_crawl }}</p>\n        </article>\n      </div>\n    </div>\n  `,\n})\nexport class SampleGraphqlComponent implements OnInit {\n  films: any[];\n  loading = true;\n  error: any;\n\n  constructor(private apollo: Apollo) {}\n  ngOnInit() {\n    this.apollo.watchQuery({\n      query: gql`\n        query AllFilmsQuery {\n          allFilms {\n            films {\n              title\n              episode_id: episodeID\n              opening_crawl: openingCrawl\n            }\n          }\n        }\n      `,\n    }).valueChanges.subscribe((result:any)=>{\n      this.films= result?.data?.allFilms?.films;\n      this.loading= result.loading;\n      console.log(`result obtained`,result) \n      this.error= result.errors[0].message;  // errors is an array and we're getting the first item only\n      console.log(`this.error`,this.error)\n    });\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "apollo",
+                        "type": "Apollo"
+                    }
+                ],
+                "line": 23,
+                "jsdoctags": [
+                    {
+                        "name": "apollo",
+                        "type": "Apollo",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ]
         }
     ],
     "modules": [
@@ -367,12 +387,19 @@
                     "elements": [
                         {
                             "name": "AppComponent"
+                        },
+                        {
+                            "name": "SampleGraphqlComponent"
                         }
                     ]
                 },
                 {
                     "type": "imports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "GraphQLModule"
+                        }
+                    ]
                 },
                 {
                     "type": "exports",
@@ -385,6 +412,64 @@
                             "name": "AppComponent"
                         }
                     ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "GraphQLModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "MockGraphQLModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
                 },
                 {
                     "type": "classes",
@@ -410,6 +495,14 @@
                 "file": "src/environments/environment.ts",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "films",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/SampleGraphqlComponent.stories.ts",
+                "type": "[]",
+                "defaultValue": "[\n  {\n    title: 'A New Hope',\n    episode_id: 4,\n    opening_crawl: `(Mocked) Rebel spaceships have won their first victory against the evil Galactic Empire.`,\n  },\n  {\n    title: 'Empire Strikes Back',\n    episode_id: 5,\n    opening_crawl: `(Mocked) Imperial troops are pursuing the Rebel forces across the galaxy.`,\n  },\n  {\n    title: 'Return of the Jedi',\n    episode_id: 6,\n    opening_crawl: `(Mocked) Luke Skywalker has returned to his home planet of Tatooine to rescue Han Solo.`,\n  },\n]"
             },
             {
                 "name": "Large",
@@ -463,25 +556,25 @@
                 "name": "MockedError",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/App.stories.ts",
+                "file": "src/app/components/SampleGraphqlComponent.stories.ts",
                 "type": "",
-                "defaultValue": "PageTemplate.bind({})"
+                "defaultValue": "MockTemplate.bind({})"
             },
             {
                 "name": "MockedSuccess",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/App.stories.ts",
+                "file": "src/app/components/SampleGraphqlComponent.stories.ts",
                 "type": "",
-                "defaultValue": "PageTemplate.bind({})"
+                "defaultValue": "MockTemplate.bind({})"
             },
             {
-                "name": "PageTemplate",
+                "name": "MockTemplate",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/App.stories.ts",
-                "type": "Story<AppComponent>",
-                "defaultValue": "(args: AppComponent) => ({\n  component: AppComponent,\n  props: args,\n})"
+                "file": "src/app/components/SampleGraphqlComponent.stories.ts",
+                "type": "Story<SampleGraphqlComponent>",
+                "defaultValue": "(\n  args: SampleGraphqlComponent\n) => ({\n  component: SampleGraphqlComponent,\n  props: args,\n})"
             },
             {
                 "name": "Primary",
@@ -532,15 +625,66 @@
                 "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
             },
             {
-                "name": "TestData",
+                "name": "uri",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/App.stories.ts",
-                "type": "[]",
-                "defaultValue": "[\n  {\n    id: 1,\n    userID: 1,\n    title: 'Something',\n    completed: false,\n  },\n  {\n    id: 2,\n    userID: 1,\n    title: 'Something',\n    completed: false,\n  },\n  {\n    id: 3,\n    userID: 2,\n    title: 'Something',\n    completed: false,\n  },\n  {\n    id: 4,\n    userID: 2,\n    title: 'Something',\n    completed: false,\n  },\n]"
+                "file": "src/app/graphql.module.ts",
+                "type": "string",
+                "defaultValue": "'https://swapi-graphql.netlify.app/.netlify/functions/index'"
+            },
+            {
+                "name": "uri",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/mock-graphql.module.ts",
+                "type": "string",
+                "defaultValue": "'https://swapi-graphql.netlify.app/.netlify/functions/index'"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "createApollo",
+                "file": "src/app/graphql.module.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "httpLink"
+                    }
+                ],
+                "returnType": "ApolloClientOptions<any>",
+                "jsdoctags": [
+                    {
+                        "name": "httpLink",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "createApollo",
+                "file": "src/app/components/mock-graphql.module.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "httpLink"
+                    }
+                ],
+                "returnType": "ApolloClientOptions<any>",
+                "jsdoctags": [
+                    {
+                        "name": "httpLink",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
@@ -562,6 +706,40 @@
                     "file": "src/environments/environment.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/app/components/SampleGraphqlComponent.stories.ts": [
+                {
+                    "name": "films",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/SampleGraphqlComponent.stories.ts",
+                    "type": "[]",
+                    "defaultValue": "[\n  {\n    title: 'A New Hope',\n    episode_id: 4,\n    opening_crawl: `(Mocked) Rebel spaceships have won their first victory against the evil Galactic Empire.`,\n  },\n  {\n    title: 'Empire Strikes Back',\n    episode_id: 5,\n    opening_crawl: `(Mocked) Imperial troops are pursuing the Rebel forces across the galaxy.`,\n  },\n  {\n    title: 'Return of the Jedi',\n    episode_id: 6,\n    opening_crawl: `(Mocked) Luke Skywalker has returned to his home planet of Tatooine to rescue Han Solo.`,\n  },\n]"
+                },
+                {
+                    "name": "MockedError",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/SampleGraphqlComponent.stories.ts",
+                    "type": "",
+                    "defaultValue": "MockTemplate.bind({})"
+                },
+                {
+                    "name": "MockedSuccess",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/SampleGraphqlComponent.stories.ts",
+                    "type": "",
+                    "defaultValue": "MockTemplate.bind({})"
+                },
+                {
+                    "name": "MockTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/SampleGraphqlComponent.stories.ts",
+                    "type": "Story<SampleGraphqlComponent>",
+                    "defaultValue": "(\n  args: SampleGraphqlComponent\n) => ({\n  component: SampleGraphqlComponent,\n  props: args,\n})"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -668,97 +846,90 @@
                     "defaultValue": "() => {\n    let storage = {};\n    return {\n      getItem: key => (key in storage ? storage[key] : null),\n      setItem: (key, value) => (storage[key] = value || ''),\n      removeItem: key => delete storage[key],\n      clear: () => (storage = {}),\n    };\n  }"
                 }
             ],
-            "src/app/App.stories.ts": [
+            "src/app/graphql.module.ts": [
                 {
-                    "name": "MockedError",
+                    "name": "uri",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/App.stories.ts",
-                    "type": "",
-                    "defaultValue": "PageTemplate.bind({})"
-                },
+                    "file": "src/app/graphql.module.ts",
+                    "type": "string",
+                    "defaultValue": "'https://swapi-graphql.netlify.app/.netlify/functions/index'"
+                }
+            ],
+            "src/app/components/mock-graphql.module.ts": [
                 {
-                    "name": "MockedSuccess",
+                    "name": "uri",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/App.stories.ts",
-                    "type": "",
-                    "defaultValue": "PageTemplate.bind({})"
-                },
-                {
-                    "name": "PageTemplate",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/App.stories.ts",
-                    "type": "Story<AppComponent>",
-                    "defaultValue": "(args: AppComponent) => ({\n  component: AppComponent,\n  props: args,\n})"
-                },
-                {
-                    "name": "TestData",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/App.stories.ts",
-                    "type": "[]",
-                    "defaultValue": "[\n  {\n    id: 1,\n    userID: 1,\n    title: 'Something',\n    completed: false,\n  },\n  {\n    id: 2,\n    userID: 1,\n    title: 'Something',\n    completed: false,\n  },\n  {\n    id: 3,\n    userID: 2,\n    title: 'Something',\n    completed: false,\n  },\n  {\n    id: 4,\n    userID: 2,\n    title: 'Something',\n    completed: false,\n  },\n]"
+                    "file": "src/app/components/mock-graphql.module.ts",
+                    "type": "string",
+                    "defaultValue": "'https://swapi-graphql.netlify.app/.netlify/functions/index'"
                 }
             ]
         },
-        "groupedFunctions": {},
+        "groupedFunctions": {
+            "src/app/graphql.module.ts": [
+                {
+                    "name": "createApollo",
+                    "file": "src/app/graphql.module.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "httpLink"
+                        }
+                    ],
+                    "returnType": "ApolloClientOptions<any>",
+                    "jsdoctags": [
+                        {
+                            "name": "httpLink",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "src/app/components/mock-graphql.module.ts": [
+                {
+                    "name": "createApollo",
+                    "file": "src/app/components/mock-graphql.module.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "httpLink"
+                        }
+                    ],
+                    "returnType": "ApolloClientOptions<any>",
+                    "jsdoctags": [
+                        {
+                            "name": "httpLink",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
         "groupedEnumerations": {},
         "groupedTypeAliases": {}
     },
     "routes": [],
     "coverage": {
-        "count": 3,
+        "count": 2,
         "status": "low",
         "files": [
-            {
-                "filePath": "src/app/App.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "MockedError",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/App.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "MockedSuccess",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/App.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "PageTemplate",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/App.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "TestData",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
             {
                 "filePath": "src/app/app.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -768,6 +939,93 @@
                 "name": "Todos",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/SampleGraphqlComponent.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "films",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/SampleGraphqlComponent.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MockedError",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/SampleGraphqlComponent.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MockedSuccess",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/SampleGraphqlComponent.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MockTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/SampleGraphqlComponent.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SampleGraphqlComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/mock-graphql.module.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "createApollo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/mock-graphql.module.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "uri",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/graphql.module.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "createApollo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/graphql.module.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "uri",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
